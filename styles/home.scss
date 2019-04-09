@@ -22,14 +22,20 @@ body {
 }
 
 .chatbar-message,
-.chatbar-username {
+.chatbar-username,
+.chatbar-submit-btn {
   border: 1px solid black;
+  color: black;
   display: block;
   height: 40px;
   line-height: 40px;
   margin: 5px;
   padding: 0 9px;
 }
+
+// .chatbar-submit-btn {
+//   display: none;
+// }
 
 .chatbar-message {
   flex: 8;

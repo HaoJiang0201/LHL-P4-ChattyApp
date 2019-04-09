@@ -1,5 +1,5 @@
 h1 {
-  color: lightblue;
+  color: tomato;
 }
 
 body {
@@ -29,6 +29,12 @@ body {
   line-height: 40px;
   margin: 5px;
   padding: 0 9px;
+}
+
+.chatbar-submit-btn {
+  color: red;
+  width: 120px;
+  height: 20px;
 }
 
 .chatbar-message {
