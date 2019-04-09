@@ -1,17 +1,17 @@
 h1 {
-  color: tomato;
+  color: lightblue;
 }
 
 body {
   background: white;
   color: black;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 14px;
   margin: 70px 0;
 }
 
 .chatbar {
-  background: tomato;
+  background: lightblue;
   border-top: 1px solid black;
   bottom: 0;
   display: flex;
@@ -66,7 +66,7 @@ body {
 }
 
 .navbar {
-  background: tomato;
+  background: lightblue;
   border-bottom: 1px solid black;
   height: 60px;
   left: 0;
@@ -87,3 +87,5 @@ body {
   padding: 0 10px;
   text-decoration: none;
 }
+
+/*# sourceMappingURL=home.css.map */
