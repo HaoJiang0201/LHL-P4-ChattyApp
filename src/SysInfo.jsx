@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 
-class Loading extends Component {
+class SysInfo extends Component {
     render() {
         return (
             <div className="message system">
-                Loading Messages ...
+                {this.props.sysInfo}
             </div>
         );
     }
 }
 
-export default Loading;
+export default SysInfo;

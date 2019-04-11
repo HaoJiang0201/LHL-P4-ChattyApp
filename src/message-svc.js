@@ -7,7 +7,7 @@ function delay(t) {
   });
 }
 
-const delayResolve = (value, t = 100) => {
+const delayResolve = (value, t = 1) => {
   return delay(t).then(() => value);
 };
 

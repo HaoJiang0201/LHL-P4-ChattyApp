@@ -1,12 +1,10 @@
 import React, {Component} from 'react';
-import Loading from './Loading.jsx';
+import SysInfo from './SysInfo.jsx';
 import MessageItem from './MessageItem.jsx';
 
 class MessageList extends Component {
     render() {
-        const MessageArea = this.props.loading ? (
-            <Loading />
-            ) : (
+        const MessageArea = (
             this.props.messages.map(message => {
                 return (
                     <MessageItem
@@ -17,9 +15,11 @@ class MessageList extends Component {
                 )
             })
         );
+
         return (
             <main className="messages">
                 { MessageArea }
+                <SysInfo sysInfo={this.props.sysInfo} />
             </main>
         );
     }

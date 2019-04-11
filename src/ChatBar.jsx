@@ -16,12 +16,12 @@ class ChatBar extends Component {
                 alert("Message is empty! Please input something.")
             } else {
                 const new_message = {
-                    id: generateRandomId(),
+                    //id: generateRandomId(),
                     username: userNameTrim,
                     content: contentInput.value
                 };
                 this.props.newMessage(new_message);
-                userNameInput.value = "";
+                //userNameInput.value = "";
                 contentInput.value = "";
             }
         };
@@ -29,7 +29,7 @@ class ChatBar extends Component {
         return (
             <form onSubmit={onSubmit}>
                 <footer className="chatbar">
-                <input name="userName" className="chatbar-username" placeholder="Your Name (Optional)" defaultValue={this.props.currentUser}/>
+                <input name="userName" className="chatbar-username" placeholder="Your Name (Optional)" defaultValue={this.props.currentUserName}/>
                 <input name="contentInput" className="chatbar-message" placeholder="Type a message and hit ENTER / click Submit button" />
                 <button className="chatbar-submit-btn" type="submit">Submit</button>
                 </footer>
