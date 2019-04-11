@@ -6,13 +6,19 @@ class MessageList extends Component {
     render() {
         const MessageArea = (
             this.props.messages.map(message => {
-                return (
-                    <MessageItem
-                        key={message.id}
-                        username={message.username}
-                        content={message.content}  
-                    />
-                )
+                if(message.username === "") {
+                    return (
+                        <Notification key={message.id} notification={message.content} />
+                    )
+                } else {
+                    return (
+                        <MessageItem
+                            key={message.id}
+                            username={message.username}
+                            content={message.content}  
+                        />
+                    )
+                }                
             })
         );
 

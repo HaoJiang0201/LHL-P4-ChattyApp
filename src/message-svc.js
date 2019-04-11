@@ -15,10 +15,9 @@ export const getMessages = () => delayResolve(messages.map(message => ({ ...mess
 
 export const addMessage = messageInfo => {
   const newMessage = {
-    id: generateRandomId(),
+    id: messageInfo.id,
     username: messageInfo.username,
     content: messageInfo.content
-    
   };
   messages.push(newMessage);
   return delayResolve({ ...newMessage });

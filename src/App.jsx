@@ -17,10 +17,12 @@ class App extends Component {
     };
     this.newMessage = this.newMessage.bind(this);
     this.wsc = new WebSocket("ws://localhost:3001");
+    this.currentInputName = this.state.currentUser.name;
   }
 
   // A new message is submit by client and send to server
-  newMessage(message){
+  newMessage(message, currentInputName){
+    this.currentInputName = currentInputName;
     // Construct a msg object containing the data the server needs to process the message from the chat client.
     var msg = {
       type: "message",
@@ -52,14 +54,25 @@ class App extends Component {
       switch(dataType) {
         case "message": {
           addMessage(dataJson.text).then(newMessage => {
-            let notification = "";
-            if(this.state.currentUser.name !== newMessage.username) {
-              notification = `${this.state.currentUser.name} has changed name to ${newMessage.username}`;
+            if(this.state.currentUser.name !== this.currentInputName) {
+              let notification = `${this.state.currentUser.name} has changed name to ${newMessage.username}`;
+              const new_notification = {
+                id: 0,
+                username: "",
+                content: notification
+              };
+              var msg = {
+                type: "notification",
+                text: new_notification,
+                user: this.state.currentUser,
+                date: Date.now()
+              };
+              this.wsc.send(JSON.stringify(msg));
             }         
             getMessages().then(messages => {
               this.setState({
-                notification: notification,
-                currentUser: {name: newMessage.username},
+                notification: "",
+                currentUser: {name: this.currentInputName},
                 messages: messages
               });
             });
@@ -70,6 +83,18 @@ class App extends Component {
         case "userOnline": {
           this.setState({
             userOnline: dataJson.text
+          });
+          break;
+        }
+        case "notification": {
+          console.log("notification = ", dataJson.text);
+          addMessage(dataJson.text).then(newMessage => {
+            getMessages().then(messages => {
+              this.setState({
+                notification: "",
+                messages: messages
+              });
+            });
           });
           break;
         }

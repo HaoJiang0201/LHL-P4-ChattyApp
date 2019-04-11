@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { generateRandomId } from "./utils";
 
 class ChatBar extends Component {
     render() {
@@ -16,11 +15,11 @@ class ChatBar extends Component {
                 alert("Message is empty! Please input something.")
             } else {
                 const new_message = {
-                    //id: generateRandomId(),
+                    id: 0,
                     username: userNameTrim,
                     content: contentInput.value
                 };
-                this.props.newMessage(new_message);
+                this.props.newMessage(new_message, userNameTrim);
                 //userNameInput.value = "";
                 contentInput.value = "";
             }
