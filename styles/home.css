@@ -22,19 +22,15 @@ body {
 }
 
 .chatbar-message,
-.chatbar-username {
+.chatbar-username,
+.chatbar-submit-btn {
   border: 1px solid black;
+  color: black;
   display: block;
   height: 40px;
   line-height: 40px;
   margin: 5px;
   padding: 0 9px;
-}
-
-.chatbar-submit-btn {
-  color: red;
-  width: 120px;
-  height: 20px;
 }
 
 .chatbar-message {
@@ -84,7 +80,7 @@ body {
 
 .navbar-brand {
   color: inherit;
-  display: block;
+  display: flex;
   float: left;
   font-weight: 700;
   font-size: 28px;
@@ -92,6 +88,17 @@ body {
   line-height: 60px;
   padding: 0 10px;
   text-decoration: none;
+  align-items: center;
+}
+
+.notification-content {
+  color: tomato;
+  padding: 10px;
+}
+
+.online-user {
+  color: black;
+  margin: 50px, 0px, 0px, 200px;
 }
 
 /*# sourceMappingURL=home.css.map */

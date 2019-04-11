@@ -72,6 +72,7 @@ body {
 }
 
 .navbar {
+  display: flex;
   background: lightblue;
   border-bottom: 1px solid black;
   height: 60px;
@@ -80,16 +81,29 @@ body {
   position: fixed;
   right: 0;
   top: 0;
+  align-items: center;
 }
 
 .navbar-brand {
   color: inherit;
-  display: block;
   float: left;
   font-weight: 700;
   font-size: 28px;
   height: 60px;
   line-height: 60px;
-  padding: 0 10px;
+  padding: 0, 0, 0, 10px;
   text-decoration: none;
 }
+
+.notification-content {
+  color: tomato;
+  padding: 10px, 0, 0, 0;
+}
+
+.online-user {
+  font-weight: bold;
+  font-size: 16px;
+  float: right;
+  margin-left: auto;
+}
+

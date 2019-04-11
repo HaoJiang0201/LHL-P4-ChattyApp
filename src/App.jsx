@@ -10,9 +10,10 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      system: "Message History Loading ...",
+      notification: "Messages Loading ...",
       currentUser: generateUserInfo(),
-      messages: []
+      messages: [],
+      userOnline: 1
     };
     this.newMessage = this.newMessage.bind(this);
     this.wsc = new WebSocket("ws://localhost:3001");
@@ -48,40 +49,49 @@ class App extends Component {
     this.wsc.onmessage = (event) => {
       const dataJson = JSON.parse(event.data);
       const dataType = dataJson.type;
-      if(dataType === "message") {
-        addMessage(dataJson.text).then(newMessage => {
-          let systemInfo = "";
-          if(this.state.currentUser.name !== newMessage.username) {
-            systemInfo = `${this.state.currentUser.name} has changed name to ${newMessage.username}`;
-          }         
-          getMessages().then(messages => {
-            this.setState({
-              system: systemInfo,
-              currentUser: {name: newMessage.username},
-              messages: messages
+      switch(dataType) {
+        case "message": {
+          addMessage(dataJson.text).then(newMessage => {
+            let notification = "";
+            if(this.state.currentUser.name !== newMessage.username) {
+              notification = `${this.state.currentUser.name} has changed name to ${newMessage.username}`;
+            }         
+            getMessages().then(messages => {
+              this.setState({
+                notification: notification,
+                currentUser: {name: newMessage.username},
+                messages: messages
+              });
             });
           });
-        });
-      } else {
-        console.log(dataJson.text);
+          break;
+        }
+        case "test": console.log(dataJson.text); break;
+        case "userOnline": {
+          this.setState({
+            userOnline: dataJson.text
+          });
+          break;
+        }
+        default: console.log("Data Type Unknown... ", dataType); break;
       }
     }
     // After 1s, show the original message list
     setTimeout(() => {
       getMessages().then(messages => {
         this.setState({
-          system: "",
+          notification: "",
           messages: messages
         });
       });
-    }, 500);
+    }, 1000);
   }
 
   render() {
     return (
       <div className="container">
-        <NavBar />
-        <MessageList currentUserName={this.state.currentUser.name} messages={this.state.messages} sysInfo={this.state.system}/>
+        <NavBar userOnline={this.state.userOnline}/>
+        <MessageList currentUserName={this.state.currentUser.name} messages={this.state.messages} notification={this.state.notification}/>
         <ChatBar currentUserName={this.state.currentUser.name} newMessage={this.newMessage} />
       </div>
     );

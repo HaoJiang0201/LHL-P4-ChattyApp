@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import SysInfo from './SysInfo.jsx';
+import Notification from './Notification.jsx';
 import MessageItem from './MessageItem.jsx';
 
 class MessageList extends Component {
@@ -19,7 +19,7 @@ class MessageList extends Component {
         return (
             <main className="messages">
                 { MessageArea }
-                <SysInfo sysInfo={this.props.sysInfo} />
+                <Notification notification={this.props.notification} />
             </main>
         );
     }
