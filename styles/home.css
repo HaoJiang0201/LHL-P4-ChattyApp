@@ -62,12 +62,18 @@ body {
   flex: 8;
 }
 
+.message-image {
+  background-color: black;
+  width: 50vw;
+}
+
 .message-username {
   flex: 2;
   font-weight: 700;
 }
 
 .navbar {
+  display: flex;
   background: lightblue;
   border-bottom: 1px solid black;
   height: 60px;
@@ -76,29 +82,30 @@ body {
   position: fixed;
   right: 0;
   top: 0;
+  align-items: center;
 }
 
 .navbar-brand {
   color: inherit;
-  display: flex;
   float: left;
   font-weight: 700;
   font-size: 28px;
   height: 60px;
   line-height: 60px;
-  padding: 0 10px;
+  padding: 0, 0, 0, 10px;
   text-decoration: none;
-  align-items: center;
 }
 
 .notification-content {
   color: tomato;
-  padding: 10px;
+  padding: 10px, 0, 0, 0;
 }
 
 .online-user {
-  color: black;
-  margin: 50px, 0px, 0px, 200px;
+  font-weight: bold;
+  font-size: 16px;
+  float: right;
+  margin-left: auto;
 }
 
 /*# sourceMappingURL=home.css.map */

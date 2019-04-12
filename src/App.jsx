@@ -31,8 +31,6 @@ class App extends Component {
       date: Date.now()
     };
     // Send the msg object as a JSON-formatted string.
-    console.log(`[${this.state.currentUser.name}] >>> A new message is submitted:`);
-    console.log("   ", msg);
     this.wsc.send(JSON.stringify(msg));
   }
   
@@ -78,7 +76,6 @@ class App extends Component {
                 currentUser: newUserInfo,
                 messages: messages
               });
-              console.log("setState = ", this.state.currentUser);
             });
           });
           break;

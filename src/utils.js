@@ -21,7 +21,7 @@ export const generateUserInfo = () => {
     case 1: name = "Bob"; color = "MidnightBlue"; break;
     case 2: name = "Cathy"; color = "DarkSlateBlue"; break;
     case 3: name = "Dodge"; color = "DarkRed"; break;
-    case 4: name = "Nick"; color = "DimGray"; break;
+    case 4: name = "Nick"; color = "Tomato"; break;
     case 5: name = "Kate"; color = "SaddleBrown"; break;
     case 6: name = "Loopy"; color = "Indigo"; break;
     case 7: name = "Irien"; color = "SteelBlue"; break;

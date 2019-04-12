@@ -21,7 +21,6 @@ class ChatBar extends Component {
                     content: contentInput.value
                 };
                 this.props.newMessage(new_message, userNameTrim);
-                //userNameInput.value = "";
                 contentInput.value = "";
             }
         };
@@ -30,7 +29,7 @@ class ChatBar extends Component {
             <form onSubmit={onSubmit}>
                 <footer className="chatbar">
                 <input style={{ color: this.props.currentUser.color }} name="userName" className="chatbar-username" placeholder="Your Name (Optional)" defaultValue={this.props.currentUser.name}/>
-                <input name="contentInput" className="chatbar-message" placeholder="Type a message and hit ENTER / click Submit button" />
+                <input name="contentInput" className="chatbar-message" placeholder="Type a message and hit ENTER / click Send button" />
                 <button className="chatbar-submit-btn" type="submit">Send</button>
                 </footer>
             </form>
