@@ -6,7 +6,7 @@ class MessageItem extends Component {
     render() {
         let content = this.props.content;
         let contentArea;
-        let reg = /(http(s?):)([/|.|\w|\s|-])*\.(?:png|jpg|jpeg|gif|png|svg)/g;
+        let reg = /(http(s?):)([/|.|\w|\s|-|\;|\=|\-])*\.(png|jpg|jpeg|gif|png|svg)/g;
         let imgUrlArray = content.match(reg);
         if(imgUrlArray) {
             let contentArray = [];
