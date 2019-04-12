@@ -2,11 +2,13 @@
     {
       "id": "B12345678Y",
       "username": "Pola",
+      "color": "CadetBlue",
       "content": "Anybody there? Anybody ..."
     },
     {
       "id": "A12345678Z",
       "username": "Ruby",
+      "color": "RebeccaPurple",
       "content": "No, I think you lost them. You lost them for good."
     }
 ]

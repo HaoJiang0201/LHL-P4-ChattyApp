@@ -15,19 +15,21 @@ export const generateUserInfo = () => {
   let userInfo = {};
   userInfo.id = generateRandomId();
   let name = "";
+  let color = "Black";
   switch(Math.floor(Math.random() * 10)){
-    case 0: name = "Amy"; break;
-    case 1: name = "Bob"; break;
-    case 2: name = "Cathy"; break;
-    case 3: name = "Dodge"; break;
-    case 4: name = "Nick"; break;
-    case 5: name = "Kate"; break;
-    case 6: name = "Loopy"; break;
-    case 7: name = "Irien"; break;
-    case 8: name = "Rusy"; break;
-    case 9: name = "Pola"; break;
-    default: name = "Zark"; break;
+    case 0: name = "Amy"; color = "DarkSlateGray"; break;
+    case 1: name = "Bob"; color = "MidnightBlue"; break;
+    case 2: name = "Cathy"; color = "DarkSlateBlue"; break;
+    case 3: name = "Dodge"; color = "DarkRed"; break;
+    case 4: name = "Nick"; color = "DimGray"; break;
+    case 5: name = "Kate"; color = "SaddleBrown"; break;
+    case 6: name = "Loopy"; color = "Indigo"; break;
+    case 7: name = "Irien"; color = "SteelBlue"; break;
+    case 8: name = "Rusy"; color = "Teal"; break;
+    case 9: name = "Pola"; color = "DarkOliveGreen"; break;
+    default: name = "Zark"; color = "Black"; break;
   }
   userInfo.name = name;
+  userInfo.color = color;
   return userInfo;
 }

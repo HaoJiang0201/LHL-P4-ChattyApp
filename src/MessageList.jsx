@@ -15,6 +15,7 @@ class MessageList extends Component {
                         <MessageItem
                             key={message.id}
                             username={message.username}
+                            color={message.color}
                             content={message.content}  
                         />
                     )

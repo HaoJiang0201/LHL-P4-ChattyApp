@@ -59,6 +59,7 @@ class App extends Component {
               const new_notification = {
                 id: 0,
                 username: "",
+                color: "",
                 content: notification
               };
               var msg = {
@@ -70,11 +71,14 @@ class App extends Component {
               this.wsc.send(JSON.stringify(msg));
             }         
             getMessages().then(messages => {
+              let newUserInfo = this.state.currentUser;
+              newUserInfo.name = this.currentInputName;
               this.setState({
                 notification: "",
-                currentUser: {name: this.currentInputName},
+                currentUser: newUserInfo,
                 messages: messages
               });
+              console.log("setState = ", this.state.currentUser);
             });
           });
           break;
@@ -116,8 +120,8 @@ class App extends Component {
     return (
       <div className="container">
         <NavBar userOnline={this.state.userOnline}/>
-        <MessageList currentUserName={this.state.currentUser.name} messages={this.state.messages} notification={this.state.notification}/>
-        <ChatBar currentUserName={this.state.currentUser.name} newMessage={this.newMessage} />
+        <MessageList messages={this.state.messages} notification={this.state.notification} />
+        <ChatBar currentUser={this.state.currentUser} newMessage={this.newMessage} />
       </div>
     );
   }

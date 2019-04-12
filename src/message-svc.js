@@ -14,11 +14,11 @@ const delayResolve = (value, t = 1) => {
 export const getMessages = () => delayResolve(messages.map(message => ({ ...message })));
 
 export const addMessage = messageInfo => {
-  const newMessage = {
-    id: messageInfo.id,
-    username: messageInfo.username,
-    content: messageInfo.content
-  };
-  messages.push(newMessage);
-  return delayResolve({ ...newMessage });
+  // const newMessage = {
+  //   id: messageInfo.id,
+  //   username: messageInfo.username,
+  //   content: messageInfo.content
+  // };
+  messages.push(messageInfo);
+  return delayResolve({ ...messageInfo });
 };
