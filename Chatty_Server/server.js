@@ -20,7 +20,6 @@ const wss = new SocketServer({ server });
 // Set up a callback that will run when a client connects to the server
 // When a client connects they are assigned a socket, represented by
 // the ws parameter in the callback.
-
 function RefreshUserOnline(wss) {
   msg = {
     type: "userOnline",
@@ -51,7 +50,6 @@ wss.on('connection', (ws) => {
     console.log(`[${ PORT }] >>> Reciving a message from client ...`);
     const dataJson = JSON.parse(event.data);
     const dataType = dataJson.type;
-    // console.log("New Message Received...", dataJson);
     switch(dataType) {
       case "message": {
         console.log(`[${dataJson.user.name}] >>> ${dataJson.text.content}, message...`);
