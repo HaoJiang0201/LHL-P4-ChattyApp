@@ -88,7 +88,6 @@ class App extends Component {
           break;
         }
         case "notification": {
-          console.log("notification = ", dataJson.text);
           addMessage(dataJson.text).then(newMessage => {
             getMessages().then(messages => {
               this.setState({

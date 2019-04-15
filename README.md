@@ -37,4 +37,4 @@ This app, Chatty, will allow users to communicate with each other without having
 This list can be found inside package.json file.
 
 ## ScreenShots:
-!["Screenshot of Chatty App"](https://github.com/Polatouche0201/Chatty_App/blob/master/docs/Chatty%20App%20Screenshot.jpg)
+!["Screenshot of Chatty App"](https://github.com/HaoJiang0201/LHL-P4-ChattyApp/blob/master/docs/Chatty%20App%20Screenshot.jpg)
